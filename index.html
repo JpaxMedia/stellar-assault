@@ -865,12 +865,14 @@ function drawHUD(){
   ctx.font='bold 9px monospace';ctx.textAlign='left';ctx.fillText(d.label,10,72);ctx.shadowBlur=0;
 
   // ── MENU BUTTON ────────────────────────────────────────────
-  const mbW=52, mbH=16, mbX=W-mbW-6, mbY=50;
+  const mbW=56, mbH=18, mbX=W-mbW-5, mbY=48;
   menuBtnRect={x:mbX,y:mbY,w:mbW,h:mbH};
-  ctx.fillStyle='rgba(0,0,0,0.70)';ctx.fillRect(mbX,mbY,mbW,mbH);
-  ctx.strokeStyle='#334466';ctx.lineWidth=1;ctx.strokeRect(mbX,mbY,mbW,mbH);
-  ctx.fillStyle='#5577aa';ctx.font='9px monospace';ctx.textAlign='center';
-  ctx.fillText('◄ MENU',mbX+mbW*.5,mbY+11);
+  ctx.fillStyle='rgba(0,10,25,0.88)';ctx.fillRect(mbX,mbY,mbW,mbH);
+  ctx.shadowColor='#00aacc';ctx.shadowBlur=6;
+  ctx.strokeStyle='#00aacc';ctx.lineWidth=1.2;ctx.strokeRect(mbX,mbY,mbW,mbH);
+  ctx.fillStyle='#00ccee';ctx.font='bold 9px monospace';ctx.textAlign='center';
+  ctx.fillText('◄ MENU',mbX+mbW*.5,mbY+12);
+  ctx.shadowBlur=0;
 
   let puy=58;
   if(P.rapid) {puBar('RAPID', P.rapidT, 6, puy,C.cyan);   puy+=20;}
@@ -1142,12 +1144,14 @@ function drawGameOver(dt){
   }
 
   // Menu button
-  const mbW=140, mbH=30, mbX=W*.5-mbW*.5, mbY=H*.5+116;
+  const mbW=152, mbH=32, mbX=W*.5-mbW*.5, mbY=H*.5+116;
   goMenuBtnRect={x:mbX,y:mbY,w:mbW,h:mbH};
-  ctx.fillStyle='rgba(0,0,0,0.65)';ctx.fillRect(mbX,mbY,mbW,mbH);
-  ctx.strokeStyle='#334466';ctx.lineWidth=1;ctx.strokeRect(mbX,mbY,mbW,mbH);
-  ctx.fillStyle='#5577aa';ctx.font='11px monospace';ctx.textAlign='center';
-  ctx.fillText('◄ MAIN MENU',W*.5,mbY+20);
+  ctx.fillStyle='rgba(0,10,25,0.90)';ctx.fillRect(mbX,mbY,mbW,mbH);
+  ctx.shadowColor='#00aacc';ctx.shadowBlur=8;
+  ctx.strokeStyle='#00aacc';ctx.lineWidth=1.5;ctx.strokeRect(mbX,mbY,mbW,mbH);
+  ctx.fillStyle='#00ccee';ctx.font='bold 11px monospace';ctx.textAlign='center';
+  ctx.fillText('◄ MAIN MENU',W*.5,mbY+21);
+  ctx.shadowBlur=0;
 }
 
 // ═══════════════════════════════════════════════════════════
