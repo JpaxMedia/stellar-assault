@@ -5,7 +5,7 @@
   "start_url": "/stellar-assault/",
   "scope": "/stellar-assault/",
   "display": "fullscreen",
-  "orientation": "landscape",
+  "orientation": "any",
   "background_color": "#000011",
   "theme_color": "#00ffff",
   "categories": ["games"],
