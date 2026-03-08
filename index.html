@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Stellar Assault">
+<meta name="theme-color" content="#00ffff">
+<meta name="description" content="Neon space arcade shooter with gravity wells, chain reactions, and 3 difficulty modes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>STELLAR ASSAULT</title>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1149,6 +1154,14 @@ function frame(ts){
 // ═══════════════════════════════════════════════════════════
 initStars();
 requestAnimationFrame(frame);
+
+// ── PWA: register service worker ──────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/stellar-assault/sw.js', { scope: '/stellar-assault/' })
+      .catch(() => {}); // silently ignore if SW unavailable (e.g. local file://)
+  });
+}
 </script>
 </body>
 </html>

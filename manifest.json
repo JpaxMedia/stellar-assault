@@ -1,0 +1,35 @@
+{
+  "name": "Stellar Assault",
+  "short_name": "Stellar",
+  "description": "Neon space arcade shooter with gravity wells, chain reactions, and 3 difficulty modes",
+  "start_url": "/stellar-assault/",
+  "scope": "/stellar-assault/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#000011",
+  "theme_color": "#00ffff",
+  "categories": ["games"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Stellar Assault gameplay"
+    }
+  ]
+}
