@@ -39,13 +39,15 @@ let isMobile = false;
 function resize() {
   const pw = window.innerWidth, ph = window.innerHeight;
   isMobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  const portrait = isMobile && ph > pw * 1.1;
+  const portrait = ph > pw * 1.1;            // aspect-ratio only — no touch check needed
   const newW = portrait ? 400 : 800;
   const newH = portrait ? 700 : 600;
   const changed = (newW !== W || newH !== H);
   W = newW; H = newH;
   PLAYER_Y_MIN = H / 3;
-  PLAYER_Y_MAX = isMobile ? H - (portrait ? 140 : 120) : H - 22;
+  // Reserve control-zone room when portrait OR touch device
+  const needsCtrl = isMobile || portrait;
+  PLAYER_Y_MAX = needsCtrl ? H - (portrait ? 140 : 120) : H - 22;
   scale = Math.min(pw / W, ph / H);
   canvas.width = W; canvas.height = H;
   canvas.style.width  = W * scale + 'px';
@@ -927,7 +929,7 @@ let joyTouchId = -1;
 let fireTouchId = -1;
 
 function drawMobileControls(){
-  if(!isMobile || GS!=='play') return;
+  if((!isMobile && W >= 500) || GS!=='play') return;  // show when touch device OR in portrait
 
   const ctrlH = W<500 ? 135 : 115;
   const ctrlY = H - ctrlH;

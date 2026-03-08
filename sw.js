@@ -1,5 +1,5 @@
 // Stellar Assault — Service Worker
-const CACHE = 'stellar-assault-v1';
+const CACHE = 'stellar-assault-v3';
 
 const PRECACHE = [
   '/stellar-assault/',
